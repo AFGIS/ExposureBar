@@ -21,11 +21,11 @@ with arcpy.da.UpdateCursor(table, ["Type", "Y","Line_Field", "KP", "X"]) as curs
     for row in cursor:
         row[4] = row[3] * 1000
         if row[0] == "RDS":
-            row[1] = 12.5
+            row[1] = 10
             row[2] = "RD" + str(RDCounter)
             cursor.updateRow(row)
         elif row[0] == "RDE":
-            row[1] = 12.5
+            row[1] = 10
             row[2] = "RD" + str(RDCounter)
             RDCounter+=1
             cursor.updateRow(row)
@@ -39,11 +39,11 @@ with arcpy.da.UpdateCursor(table, ["Type", "Y","Line_Field", "KP", "X"]) as curs
             ECounter+=1
             cursor.updateRow(row)
         elif row[0] == "FS":
-            row[1] = 37.5
+            row[1] = 40
             row[2] = "F" + str(ECounter)
             cursor.updateRow(row)
         elif row[0] == "FE":
-            row[1] = 37.5
+            row[1] = 40
             row[2] = "F" + str(ECounter)
             FCounter+=1
             cursor.updateRow(row)
