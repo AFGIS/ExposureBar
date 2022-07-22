@@ -14,7 +14,7 @@ arcpy.management.AddField(table, "Y", "DOUBLE")
 arcpy.management.AddField(table, "X", "DOUBLE")
 arcpy.management.AddField(table, "Line_Field", "TEXT")
 
-with arcpy.da.UpdateCursor(table, ["Type", "Y","Line_Field", "KP", "X"]) as cursor:
+with arcpy.da.UpdateCursor(table, ["Code", "Y","Line_Field", "KP", "X"]) as cursor:
     RDCounter = 0
     ECounter = 0
     FCounter = 0
@@ -40,11 +40,11 @@ with arcpy.da.UpdateCursor(table, ["Type", "Y","Line_Field", "KP", "X"]) as curs
             cursor.updateRow(row)
         elif row[0] == "FS":
             row[1] = 40
-            row[2] = "F" + str(ECounter)
+            row[2] = "F" + str(FCounter)
             cursor.updateRow(row)
         elif row[0] == "FE":
             row[1] = 40
-            row[2] = "F" + str(ECounter)
+            row[2] = "F" + str(FCounter)
             FCounter+=1
             cursor.updateRow(row)
 
